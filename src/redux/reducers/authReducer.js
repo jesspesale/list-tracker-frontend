@@ -1,4 +1,4 @@
-export default authReducer (state, action) => {
+export default (state = {loggedIn: false, currentUser: {}}, action) => {
     switch(action.type){
         default:
                 return state
