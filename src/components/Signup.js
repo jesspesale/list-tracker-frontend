@@ -1,16 +1,11 @@
 import React, { useState } from "react";
+import { signUp } from "../redux/actions/authActions";
 
 export default function Signup() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
-
-    const state = {
-        email: email,
-        password: password,
-        passwordConfirmation: passwordConfirmation
-    }
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -26,7 +21,12 @@ export default function Signup() {
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        console.log(state)
+        let user = {
+          email: email,
+          password: password,
+          passwordConfirmation: passwordConfirmation
+        };
+        signUp(user)
     }
 
   return (
