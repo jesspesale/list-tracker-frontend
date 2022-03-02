@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signup } from "../redux/actions/authActions";
 import {connect} from "react-redux"
 
-function Signup() {
+export default function Signup() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -27,7 +27,7 @@ function Signup() {
           password: password,
           passwordConfirmation: passwordConfirmation
         };
-        signup(user)
+        signUp(user)
     }
 
   return (
@@ -48,5 +48,3 @@ function Signup() {
     </div>
   );
 }
-                          //our map dispatch to props is only one
-export default connect(null, { signup })(Signup);
