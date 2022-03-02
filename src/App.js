@@ -5,11 +5,13 @@ import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import Signup from "./components/Signup"
 import Login from "./components/Login";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
       <Router>
+          <Navbar/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/dashboard" component={Dashboard} />

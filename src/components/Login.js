@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { login } from "../redux/actions/authActions";
+import { login } from "../redux/actions/authActions";
 import { connect } from "react-redux";
 
 class Login extends Component {
@@ -16,7 +16,7 @@ class Login extends Component {
 
   handleOnSubmit = (e) => {
     e.preventDefault();
-    // this.props.login(this.state, this.props.history);
+    this.props.login(this.state, this.props.history);
     // has access to history bc getting rendered via a Route comp for react router
   };
 
@@ -47,4 +47,4 @@ class Login extends Component {
   }
 }
 
-export default connect()(Login);
+export default connect(null, {login})(Login);
