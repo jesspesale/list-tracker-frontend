@@ -20,6 +20,8 @@ class Signup extends Component {
     e.preventDefault();
     // console.log(this.state)
     this.props.signup(this.state);
+    this.props.history.push("./dashboard")
+// has access to history bc getting rendered via a Route comp for react router
   };
 
   render() {
