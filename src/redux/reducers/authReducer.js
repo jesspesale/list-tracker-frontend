@@ -8,6 +8,13 @@ export default (state = {loggedIn: false, currentUser: {}}, action) => {
           currentUser: action.payload.currentUser,
         };
 
+        case "LOGOUT":
+          return {
+            ...state,
+            loggedIn: false,
+            currentUser: {}
+          }
+
       default:
         return state;
     }
