@@ -6,19 +6,19 @@ import Dashboard from "./components/Dashboard";
 import Signup from "./components/Signup"
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
+import {checkLoggedIn} from "./redux/actions/authActions"
+import {connect } from "react-redux"
+
+
+// MUST INCLUDE credentials: 'include', IN EVERY FETCH CALL
 
 class  App extends React.Component {
 
   componentDidMount() {
-    this.checkLoginStatus()
+    this.props.checkLoggedIn()
   }
 
   checkLoginStatus = () => {
-    fetch('http://localhost:3001/logged_in', {
-      credentials: 'include',
-    })
-      .then(res => res.json())
-      .then(data => console.log(data))
 
   }
 
@@ -39,4 +39,4 @@ class  App extends React.Component {
     }
 }
 
-export default App;
+export default connect(null, {checkLoggedIn})(App);
