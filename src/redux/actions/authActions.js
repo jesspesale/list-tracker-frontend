@@ -1,4 +1,4 @@
-export const signup = (user) => {
+export const signup = (user, history) => {
     return (dispatch) => {
         fetch("http://localhost:3001/users", {
           method: "POST",
@@ -16,8 +16,8 @@ export const signup = (user) => {
                   loggedIn: data.logged_in, 
                   currentUser: data.user
                 } 
-               }
-            )}
-        );
+              })
+              history.push('/dashboard')
+          });
     }
 }

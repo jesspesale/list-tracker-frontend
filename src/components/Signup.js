@@ -19,8 +19,7 @@ class Signup extends Component {
   handleOnSubmit = (e) => {
     e.preventDefault();
     // console.log(this.state)
-    this.props.signup(this.state);
-    this.props.history.push("./dashboard")
+    this.props.signup(this.state, this.props.history);
 // has access to history bc getting rendered via a Route comp for react router
   };
 
