@@ -4,6 +4,7 @@ import './App.css';
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import Signup from "./components/Signup"
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login" component={Login} />
         </Switch>
       </Router>
     </div>
