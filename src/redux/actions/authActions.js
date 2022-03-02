@@ -63,3 +63,13 @@ export const checkLoggedIn = () => {
       )
   }
 }
+
+export const logout = () => {
+  return (dispatch) => {
+    fetch("http://localhost:3001/logout", {
+      method: "DELETE",
+      credentials: "include",
+    })
+      .then(() => dispatch({type: "LOGOUT"}) );
+  };  
+}
