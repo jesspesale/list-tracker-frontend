@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signup } from "../redux/actions/authActions";
 import {connect} from "react-redux"
 
-export default function Signup() {
+function Signup() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -27,7 +27,8 @@ export default function Signup() {
           password: password,
           passwordConfirmation: passwordConfirmation
         };
-        signUp(user)
+        // console.log(user)
+        signup(user)
     }
 
   return (
@@ -48,3 +49,5 @@ export default function Signup() {
     </div>
   );
 }
+
+export default connect(null, {signup})(Signup)
