@@ -1,53 +1,60 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import { signup } from "../redux/actions/authActions";
-import {connect} from "react-redux"
+import { connect } from "react-redux";
 
-function Signup() {
+class Signup extends Component {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  state = {
+    email: "",
+    password: "",
+    password_confirmation: "",
+  };
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
+  handleOnChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
+  handleOnSubmit = (e) => {
+    e.preventDefault();
+    // console.log(this.state)
+    this.props.signup(this.state);
+  };
 
-    const handlePasswordConfirmChange = (e) => {
-      setPasswordConfirmation(e.target.value);
-    };
-
-    const handleOnSubmit = (e) => {
-        e.preventDefault()
-        let user = {
-          email: email,
-          password: password,
-          passwordConfirmation: passwordConfirmation
-        };
-        // console.log(user)
-        signup(user)
-    }
-
-  return (
-    <div>
-      <h2>Signup Below:</h2>
-      <form onSubmit={handleOnSubmit}>
-        <label>Email</label>
-        <input type="text" value={email} onChange={handleEmailChange}/>
-        <br />
-        <label>Password</label>
-        <input type="text" value={password} onChange={handlePasswordChange} />
-        <br />
-        <label>Confirm Password</label>
-        <input type="text" value={passwordConfirmation} onChange={handlePasswordConfirmChange} />
-        <br/>
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleOnSubmit}>
+          <label>Email</label>
+          <input
+            name="email"
+            value={this.state.email}
+            onChange={this.handleOnChange}
+            type="text"
+          />
+          <br />
+          <label>Password</label>
+          <input
+            name="password"
+            value={this.state.password}
+            onChange={this.handleOnChange}
+            type="text"
+          />
+          <br />
+          <label>Confirm Password</label>
+          <input
+            name="password_confirmation"
+            value={this.state.password_confirmation}
+            onChange={this.handleOnChange}
+            type="text"
+          />
+          <br />
+          <button type="submit">Signup</button>
+        </form>
+      </div>
+    );
+  }
 }
 
-export default connect(null, {signup})(Signup)
+export default connect(null, { signup })(Signup);

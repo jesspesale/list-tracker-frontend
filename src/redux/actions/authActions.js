@@ -1,5 +1,5 @@
-export const signup = (user) => {
-    return (dispatch) => {
+export const signUp = (user) => {
+    // return (dispatch) => {
         fetch("http://localhost:3001/users", {
           method: "POST",
           headers: {
@@ -18,5 +18,5 @@ export const signup = (user) => {
         //        }
         //     )
         // );
-    }
+    // }
 }
