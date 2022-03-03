@@ -8,23 +8,35 @@ class Navbar extends React.Component {
     render(){
         console.log(this.props)
         return (
-            <div className="navbar">
-                <Link className="nav-item" to="/">
-                Home
-                </Link>
+          <div className="navbar">
+            <Link className="nav-item" to="/">
+              Home
+            </Link>
+
+            {this.props.loggedIn ? (
+              <>
                 <Link className="nav-item" to="/dashboard">
-                Dashboard
+                  Dashboard
                 </Link>
+                <Link
+                  className="nav-item"
+                  onClick={() => this.props.logout()}
+                  to="/login"
+                >
+                  Logout
+                </Link>
+              </>
+            ) : (
+              <>
                 <Link className="nav-item" to="/login">
-                Login
+                  Login
                 </Link>
                 <Link className="nav-item" to="/signup">
-                Signup
+                  Signup
                 </Link>
-                <Link className="nav-item" onClick={() => this.props.logout()} to="#">
-                Logout
-                </Link>
-            </div>
+              </>
+            )}
+          </div>
         ); 
     }
 }
