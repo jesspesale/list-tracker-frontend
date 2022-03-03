@@ -1,5 +1,5 @@
 import React from "react"
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom"
 import './App.css';
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
@@ -29,7 +29,14 @@ class  App extends React.Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/dashboard" render={(props) => {
+              if(this.props.loggedIn) {
+                return <Dashboard {...props} />
+              } else {
+                return <Redirect to='/login' />
+              }
+            }} 
+            />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
           </Switch>
