@@ -12,7 +12,7 @@ export default (state = {loggedIn: false, currentUser: {}}, action) => {
           return {
             ...state,
             loggedIn: false,
-            currentUser: {}
+            currentUser: {},
           }
 
       default:

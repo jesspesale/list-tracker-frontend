@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {logout} from ".././redux/actions/authActions"
+import {logout} from "../redux/actions/authActions"
 import { connect } from 'react-redux';
 
 class Navbar extends React.Component {
-
+    
     render(){
         return (
             <div className="navbar">
@@ -20,12 +20,12 @@ class Navbar extends React.Component {
                 <Link className="nav-item" to="/signup">
                 Signup
                 </Link>
-                <Link className="nav-item" onClick={() => this.props.logout} to="/">
-                Logout88
+                <Link className="nav-item" onClick={() => this.props.logout()} to="#">
+                Logout
                 </Link>
             </div>
-        );
-    }  
+        ); 
+    }
 }
 
 export default connect(null, {logout})(Navbar)

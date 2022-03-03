@@ -70,6 +70,7 @@ export const logout = () => {
       method: "DELETE",
       credentials: "include",
     })
+      .then(res => res.json())
       .then(() => dispatch({type: "LOGOUT"}) );
   };  
 }
