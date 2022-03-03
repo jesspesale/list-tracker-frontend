@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 class Navbar extends React.Component {
     
     render(){
+        console.log(this.props)
         return (
             <div className="navbar">
                 <Link className="nav-item" to="/">
@@ -28,4 +29,10 @@ class Navbar extends React.Component {
     }
 }
 
-export default connect(null, {logout})(Navbar)
+const mapStateToProps = (state) => {
+    return {
+        loggedIn: state.auth.loggedIn
+    }
+}
+
+export default connect(mapStateToProps, { logout })(Navbar);
