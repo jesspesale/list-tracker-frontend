@@ -39,4 +39,10 @@ class  App extends React.Component {
     }
 }
 
-export default connect(null, {checkLoggedIn})(App);
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.auth.loggedIn
+  }
+}
+
+export default connect(mapStateToProps, {checkLoggedIn})(App);
