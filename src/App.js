@@ -14,15 +14,20 @@ import {connect } from "react-redux"
 
 class  App extends React.Component {
 
-  componentDidMount() {
-    this.props.checkLoggedIn()
+  state = {
+    loading: true
   }
 
-  checkLoginStatus = () => {
+  componentDidMount() {
+    this.props.checkLoggedIn(this.toggleLoading)
+  }
 
+  toggleLoading = () => {
+    this.setState({loading: !this.state.loading})
   }
 
   render() {
+    if(this.state.loading) return <h1>Loading...</h1>
     return (
       <div className="App">
         <Router>
