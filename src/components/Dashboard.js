@@ -2,8 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 
 const Dashboard = ({user})=> {
-  // console.log(user)
-
+  
   return (
     <div>
       <h2>Dashboard</h2>
